@@ -22,6 +22,8 @@ package org.firstinspires.ftc.robotcontroller.internal.Core;
  * be called every iteration in the OpMode loop. However, a raiseLiftToPosition() function might
  * need to be wrapped by this class because any looping in raiseLiftToPosition() pauses the OpMode
  * loop and prevents anything else from being run.
+ *
+ * @deprecated Use Command instead
  */
 public abstract class RobotCommand
 {
