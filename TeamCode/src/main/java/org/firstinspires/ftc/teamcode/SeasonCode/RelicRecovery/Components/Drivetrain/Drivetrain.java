@@ -44,7 +44,6 @@ public class Drivetrain extends RobotComponent
     // Commands
     public TurnTo turnTo;
     public DriveToDistance driveTo;
-    public DriveForTime driveForTime;
 
 
     /**
