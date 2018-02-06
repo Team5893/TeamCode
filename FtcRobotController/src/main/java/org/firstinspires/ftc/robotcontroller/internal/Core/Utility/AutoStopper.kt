@@ -9,6 +9,7 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.RobotBase
  * Utility class for stopping an autonomous built with Linear OpMode
  */
 @Suppress("unused")
+@Deprecated("Command stopping should be handled by the command already")
 class AutoStopper(private val _auto: LinearOpMode , private val _robot: RobotBase)
 {
     /**

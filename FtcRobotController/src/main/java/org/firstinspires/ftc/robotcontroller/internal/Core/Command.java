@@ -24,9 +24,10 @@ public abstract class Command
     /**
      * Executes this command
      */
-    public final void execute()
-    {
+    public final void execute() throws InterruptedException {
         run();
+
+        Thread.sleep(50);
     }
 
 

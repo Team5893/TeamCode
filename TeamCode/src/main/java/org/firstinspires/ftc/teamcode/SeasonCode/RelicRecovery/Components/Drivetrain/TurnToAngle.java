@@ -57,6 +57,7 @@ public class TurnToAngle extends Command
         double speed;
         double error = INIT_ERROR;
 
+        drivetrain.setState(Drivetrain.State.FORWARD_FAST);
 
         while(Math.abs(error) > TOLERANCE && System.currentTimeMillis() - START_TIME < _timeout
                 && !_stop && drivetrain.base().opMode().opModeIsActive())
@@ -76,6 +77,12 @@ public class TurnToAngle extends Command
             {
                 speed = _maxSpeed;
             }
+
+            drivetrain.base().opMode().telemetry.addData("Heading" , imu.zAngle());
+            drivetrain.base().opMode().telemetry.addData("Error" , error);
+            drivetrain.base().opMode().telemetry.addData("Speed" , speed);
+            drivetrain.base().opMode().telemetry.update();
+
 
             drivetrain.run(0.0 , Math.abs(error) / -error * speed , false);
         }
