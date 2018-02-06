@@ -4,6 +4,8 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base;
+import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Drivetrain.TestSequence;
+import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Drivetrain.TimeDrive;
 
 /**
  * Created by FnMat on 2/3/2018.
@@ -21,9 +23,6 @@ public class AutoTest extends LinearOpMode
 
         waitForStart();
 
-        base.drivetrain.driveTo.setParams(25 , 1 , 10_000);
-        base.drivetrain.driveTo.runSequentially();
-        base.drivetrain.driveTo.setParams(-25 , 1 , 10_000);
-        base.drivetrain.driveTo.runSequentially();
+        new TestSequence().execute();
     }
 }

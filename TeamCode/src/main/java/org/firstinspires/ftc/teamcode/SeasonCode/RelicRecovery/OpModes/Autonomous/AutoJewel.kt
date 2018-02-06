@@ -14,8 +14,9 @@ import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base
 
 @Autonomous(name = "Jewel")
 @Disabled
-class AutoJewel : LinearOpMode()
+class AutoJewel// : LinearOpMode()
 {
+    /*
     private val _base = Base()
 
     private val _autoMenu = AutoMenu(this)
@@ -154,4 +155,5 @@ class AutoJewel : LinearOpMode()
             }
         }
     }
+    */
 }

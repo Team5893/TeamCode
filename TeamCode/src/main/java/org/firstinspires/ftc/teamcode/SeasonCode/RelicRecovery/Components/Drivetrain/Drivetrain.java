@@ -76,25 +76,6 @@ public class Drivetrain extends RobotComponent
 
 
     /**
-     * Sets drivetrain dependencies and performs any additional initializations required
-     *
-     * Call this in your robot base.init(), after all other components have been initialized.
-     *
-     * If you don't, you'll get NullPointerException. How about we don't? Place this where it
-     * belongs
-     *
-     * @param IMU The IMU object in the base
-     */
-    public void setDependencies(final REVIMU IMU)
-    {
-        _imu = IMU;
-        turnTo = new TurnTo(this , _imu);
-        driveTo = new DriveToDistance(this);
-        driveForTime = new DriveForTime(this);
-    }
-
-
-    /**
      * @return The left motor of the drivetrain
      */
     public DcMotor leftMotor()

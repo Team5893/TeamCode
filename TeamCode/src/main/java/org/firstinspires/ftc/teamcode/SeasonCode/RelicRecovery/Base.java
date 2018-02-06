@@ -25,25 +25,25 @@ import static java.lang.Thread.sleep;
 public class Base extends RobotBase
 {
     /** Drivetrain component of our Relic Recovery Robot */
-    public Drivetrain drivetrain = new Drivetrain();
+    public static final Drivetrain drivetrain = new Drivetrain();
 
     /** Lift component of our Relic Recovery Robot */
-    public Lift lift = new Lift();
+    public static final Lift lift = new Lift();
 
     /** Glyph grabber component of our Relic Recover robot */
-    public GlyphGrabber glyphGrabber = new GlyphGrabber();
+    public static final GlyphGrabber glyphGrabber = new GlyphGrabber();
 
     /** Relic Extender component of our Relic Recovery robot */
-    public RelicExtender relicExtender = new  RelicExtender();
+    public static final RelicExtender relicExtender = new  RelicExtender();
 
     /** Relic Grabber component of our Relic Recovery robot */
-    public RelicGrabber relicGrabber = new RelicGrabber();
+    public static final RelicGrabber relicGrabber = new RelicGrabber();
 
     /** Jewel Arm component of our Relic Recovery robot */
-    public JewelArm jewelArm = new JewelArm();
+    public static final JewelArm jewelArm = new JewelArm();
 
     /** Built in IMU in the Rev module */
-    public REVIMU imu = new REVIMU();
+    public static final REVIMU imu = new REVIMU();
 
 
     /**
@@ -107,11 +107,6 @@ public class Base extends RobotBase
         {
             e.printStackTrace();
         }
-
-
-        // Dependency setting
-        drivetrain.setDependencies(imu);
-        glyphGrabber.setDependencies();
     }
 
 

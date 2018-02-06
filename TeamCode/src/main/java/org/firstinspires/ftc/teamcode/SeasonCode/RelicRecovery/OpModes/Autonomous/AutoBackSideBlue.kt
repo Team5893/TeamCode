@@ -14,6 +14,8 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Vuforia
 import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark
 import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base
+import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.drivetrain
+import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.imu
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.GlyphGrabber.GlyphGrabber
 
 
@@ -32,8 +34,9 @@ import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.GlyphG
  */
 @Autonomous(name = "Back Side Blue")
 @Suppress("unused")
-class AutoBackSideBlue : LinearOpMode()
+class AutoBackSideBlue //: LinearOpMode()
 {
+    /*
     private val _base = Base()
 
     private val _autoMenu = AutoMenu(this)
@@ -60,14 +63,14 @@ class AutoBackSideBlue : LinearOpMode()
     override fun runOpMode() {
         _base.init(hardwareMap, this)
 
-        _base.imu.calibrateTo(95)
+        imu.calibrateTo(95)
 
         _vuforia.init(hardwareMap, VuforiaLocalizer.CameraDirection.BACK)
         _vuforia.activate()
 
         waitForStart()
 
-        _base.drivetrain.setZeroPowerMode(DcMotor.ZeroPowerBehavior.BRAKE)
+        drivetrain.setZeroPowerMode(DcMotor.ZeroPowerBehavior.BRAKE)
 
         _autoStopper.startChecking()
 
@@ -83,8 +86,8 @@ class AutoBackSideBlue : LinearOpMode()
 
 
         // Turn to get the jewels
-        _base.drivetrain.turnTo.setParams(75.0, .4 , 4_000)
-        _base.drivetrain.turnTo.runSequentially()
+        drivetrain.turnTo.setParams(75.0, .4 , 4_000)
+        drivetrain.turnTo.runSequentially()
 
         sleep(2_000)
 
@@ -273,4 +276,5 @@ class AutoBackSideBlue : LinearOpMode()
 
         telemetry.update()
     }
+    */
 }

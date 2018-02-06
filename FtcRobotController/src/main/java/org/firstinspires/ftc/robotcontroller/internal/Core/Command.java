@@ -52,7 +52,7 @@ public abstract class Command
      */
     protected final synchronized void addParallel(Command command)
     {
-        if(_t != null)
+        if(_t == null)
         {
             _t = new Thread(command::run);
             _t.start();

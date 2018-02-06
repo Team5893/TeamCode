@@ -4,11 +4,8 @@ package org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Glyph
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.directcurrent.season.relicrecovery.drivetrain.DriveToDistance;
-import org.directcurrent.season.relicrecovery.drivetrain.TurnTo;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotBase;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotComponent;
-import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
 
 
 /**
@@ -17,15 +14,13 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
 @SuppressWarnings({"WeakerAccess", "FieldCanBeLocal"})
 public class GlyphGrabber extends RobotComponent
 {
-    private final double WHEEL_SPEED = .5;
-    private final double CONVEYOR_SPEED = .5;
-    private final double STOP_SPEED = 0;
+    private double _wheelSpeed = 1;
+    private double _conveyorSpeed = 1;
+    private double _stopSpeed = 0;
 
     public DcMotor leftWheelMotor;
     public DcMotor rightWheelMotor;
     public DcMotor conveyorMotor;
-
-    public ActivateForTime activateForTime;
 
 
     /**
@@ -56,16 +51,14 @@ public class GlyphGrabber extends RobotComponent
 
 
     /**
-     * Sets Glyph Grabber dependencies and performs any additional initializations required
+     * Sets the run speed of both the conveyor belt and the intake wheels when the grabber is active
      *
-     * Call this in your robot base.init(), after all other components have been initialized.
-     *
-     * If you don't, you'll get NullPointerException. How about we don't? Place this where it
-     * belongs
+     * @param SPEED Speed to set to the conveyor and the intake wheels
      */
-    public void setDependencies()
+    public void setRunSpeed(final double SPEED)
     {
-        activateForTime = new ActivateForTime(this);
+        _conveyorSpeed = SPEED;
+        _wheelSpeed = SPEED;
     }
 
 
@@ -79,21 +72,21 @@ public class GlyphGrabber extends RobotComponent
         switch(STATE)
         {
             case INPUT:
-                leftWheelMotor.setPower(WHEEL_SPEED);
-                rightWheelMotor.setPower(WHEEL_SPEED);
-                conveyorMotor.setPower(CONVEYOR_SPEED);
+                leftWheelMotor.setPower(_wheelSpeed);
+                rightWheelMotor.setPower(_wheelSpeed);
+                conveyorMotor.setPower(_conveyorSpeed);
                 break;
 
             case OUTPUT:
-                leftWheelMotor.setPower(-WHEEL_SPEED);
-                rightWheelMotor.setPower(-WHEEL_SPEED);
-                conveyorMotor.setPower(-CONVEYOR_SPEED);
+                leftWheelMotor.setPower(-_wheelSpeed);
+                rightWheelMotor.setPower(-_wheelSpeed);
+                conveyorMotor.setPower(-_conveyorSpeed);
                 break;
 
             case STOP:
-                leftWheelMotor.setPower(STOP_SPEED);
-                rightWheelMotor.setPower(STOP_SPEED);
-                conveyorMotor.setPower(STOP_SPEED);
+                leftWheelMotor.setPower(_stopSpeed);
+                rightWheelMotor.setPower(_stopSpeed);
+                conveyorMotor.setPower(_stopSpeed);
                 break;
         }
     }
@@ -106,6 +99,5 @@ public class GlyphGrabber extends RobotComponent
     public void stop()
     {
         setState(State.STOP);
-        activateForTime.stop();
     }
 }
