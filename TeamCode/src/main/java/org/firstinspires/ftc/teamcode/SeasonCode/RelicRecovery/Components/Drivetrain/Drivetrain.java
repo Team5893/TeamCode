@@ -4,8 +4,6 @@ package org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Drive
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-import org.directcurrent.season.relicrecovery.drivetrain.DriveToDistance;
-import org.directcurrent.season.relicrecovery.drivetrain.TurnTo;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotBase;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotComponent;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
@@ -40,10 +38,6 @@ public class Drivetrain extends RobotComponent
 
     // Dependencies
     private REVIMU _imu;
-
-    // Commands
-    public TurnTo turnTo;
-    public DriveToDistance driveTo;
 
 
     /**
@@ -394,8 +388,5 @@ public class Drivetrain extends RobotComponent
     public void stop()
     {
         setState(State.STOP);
-
-        turnTo.stop();
-        driveTo.stop();
     }
 }
