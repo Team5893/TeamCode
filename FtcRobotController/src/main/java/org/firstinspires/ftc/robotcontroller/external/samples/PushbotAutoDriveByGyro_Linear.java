@@ -51,7 +51,7 @@ import com.qualcomm.robotcore.util.Range;
  *  This code requires that the drive Motors have been configured such that a positive
  *  power command moves them forward, and causes the encoders to count UP.
  *
- *  This code uses the RUN_TO_POSITION mode to enable the Motor controllers to generate the run profile
+ *  This code uses the RUN_TO_POSITION mode to enable the Motor controllers to generate the start profile
  *
  *  In order to calibrate the Gyro correctly, the robot must remain stationary during calibration.
  *  This is performed when the INIT button is pressed on the Driver Station.
@@ -257,7 +257,7 @@ public class PushbotAutoDriveByGyro_Linear extends LinearOpMode {
 
         // keep looping while we are still active, and not on heading.
         while (opModeIsActive() && !onHeading(speed, angle, P_TURN_COEFF)) {
-            // Update telemetry & Allow time for other processes to run.
+            // Update telemetry & Allow time for other processes to start.
             telemetry.update();
         }
     }
@@ -279,7 +279,7 @@ public class PushbotAutoDriveByGyro_Linear extends LinearOpMode {
         // keep looping while we have time remaining.
         holdTimer.reset();
         while (opModeIsActive() && (holdTimer.time() < holdTime)) {
-            // Update telemetry & Allow time for other processes to run.
+            // Update telemetry & Allow time for other processes to start.
             onHeading(speed, angle, P_TURN_COEFF);
             telemetry.update();
         }

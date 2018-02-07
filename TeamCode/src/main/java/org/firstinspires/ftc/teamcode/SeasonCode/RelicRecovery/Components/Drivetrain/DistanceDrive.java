@@ -8,11 +8,8 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Command;
 import static org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.drivetrain;
 
 
-
 public class DistanceDrive extends Command
 {
-    private final double _COUNTS_PER_INCH = 64.3304;
-
     private double _distance;
     private double _speed;
     private long _timeout;
@@ -21,7 +18,7 @@ public class DistanceDrive extends Command
 
 
     /**
-     * Creates a new DistanceDrive Command, given a distance to travel to and a speed to run at.
+     * Creates a new DistanceDrive Command, given a distance to travel to and a speed to start at.
      * An automatic timeout is set at 10 seconds
      *
      * @param DISTANCE Distance to drive to in inches
@@ -36,7 +33,7 @@ public class DistanceDrive extends Command
 
 
     /**
-     * Creates a new DistanceDrive Command, given a distance to travel to, a speed to run at, and
+     * Creates a new DistanceDrive Command, given a distance to travel to, a speed to start at, and
      * a timeout in case the distance is not reached.
      *
      * @param DISTANCE Distance to drive to in inches
@@ -57,11 +54,14 @@ public class DistanceDrive extends Command
      * stop.
      */
     @Override
-    protected void run() {
-        if (drivetrain.encoderMode() != DcMotor.RunMode.RUN_TO_POSITION) {
+    protected void start()
+    {
+        if (drivetrain.encoderMode() != DcMotor.RunMode.RUN_TO_POSITION)
+        {
             drivetrain.encoderToPos();
         }
 
+        double _COUNTS_PER_INCH = 64.3304;
         drivetrain.leftMotor().setTargetPosition((int) (_distance * _COUNTS_PER_INCH + drivetrain.leftEncoderCount()));
         drivetrain.rightMotor().setTargetPosition((int) (_distance * _COUNTS_PER_INCH + drivetrain.rightEncoderCount()));
 
@@ -70,6 +70,7 @@ public class DistanceDrive extends Command
 
         final long startTime = System.currentTimeMillis();
 
+        //noinspection StatementWithEmptyBody
         while (drivetrain.leftMotor().isBusy() && drivetrain.rightMotor().isBusy() && !_stop &&
                 drivetrain.base().opMode().opModeIsActive() && System.currentTimeMillis() - startTime < _timeout)
         {

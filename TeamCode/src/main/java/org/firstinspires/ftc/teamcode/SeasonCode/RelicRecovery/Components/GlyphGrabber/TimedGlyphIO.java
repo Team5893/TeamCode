@@ -5,6 +5,7 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Command;
 import static org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.glyphGrabber;
 
 
+@SuppressWarnings("unused")
 public class TimedGlyphIO extends Command
 {
     private long _activationTime;
@@ -18,7 +19,7 @@ public class TimedGlyphIO extends Command
      * Creates a new TimedGlyphIO command given a time in milliseconds and an GlyphGrabber state.
      * Sets the speed of the GlyphGrabber to 1.0
      *
-     * @param TIME Time to run the grabber for in milliseconds
+     * @param TIME Time to start the grabber for in milliseconds
      * @param STATE State to set the grabber to for the duration of the command
      */
     public TimedGlyphIO(final long TIME , final GlyphGrabber.State STATE)
@@ -31,11 +32,11 @@ public class TimedGlyphIO extends Command
 
     /**
      * Creates a new TimedGlyph IO command given a time in milliseconds, GlyphGrabber state, and
-     * a speed to run the grabber at.
+     * a speed to start the grabber at.
      *
-     * @param TIME Time to run the grabber for in milliseconds
+     * @param TIME Time to start the grabber for in milliseconds
      * @param STATE State to set the grabber to for the duration of the command
-     * @param SPEED Speed at which to run the grabber at.
+     * @param SPEED Speed at which to start the grabber at.
      */
     public TimedGlyphIO(final long TIME , final GlyphGrabber.State STATE , final double SPEED)
     {
@@ -46,13 +47,14 @@ public class TimedGlyphIO extends Command
 
 
     @Override
-    protected void run()
+    protected void start()
     {
         final long startTime = System.currentTimeMillis();
 
         glyphGrabber.setRunSpeed(_speed);
         glyphGrabber.setState(_state);
 
+        //noinspection StatementWithEmptyBody
         while(System.currentTimeMillis() - startTime < _activationTime && !_stop &&
                 glyphGrabber.base().opMode().opModeIsActive())
         {

@@ -59,9 +59,9 @@ final class Spool
 
 
     /**
-     * Attempts to power the spool given a power level to run at
+     * Attempts to power the spool given a power level to start at
      *
-     * @param POWER The power level to run the spool at
+     * @param POWER The power level to start the spool at
      *
      * @return True if attempt to power spool is successful, false otherwise
      */

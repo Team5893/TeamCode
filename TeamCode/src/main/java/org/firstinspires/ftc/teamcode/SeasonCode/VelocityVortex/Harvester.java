@@ -37,7 +37,7 @@ final class Harvester
 
 
     /**
-     * Helps determine which direction to run the harvester
+     * Helps determine which direction to start the harvester
      */
     enum Direction
     {
@@ -71,7 +71,7 @@ final class Harvester
     /**
      * Runs the harvester at default power
      *
-     * @param direction The direction in which to run the harvester
+     * @param direction The direction in which to start the harvester
      *
      * @return Returns true if successful, false if failed
      */
@@ -86,8 +86,8 @@ final class Harvester
     /**
      * Runs the harvester at a given power value
      *
-     * @param direction The direction in which to run the harvester
-     * @param POWER The power at which to run the harvester
+     * @param direction The direction in which to start the harvester
+     * @param POWER The power at which to start the harvester
      *
      * @return Returns true if successful, false otherwise
      */

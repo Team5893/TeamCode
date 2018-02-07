@@ -18,44 +18,42 @@ public abstract class Command
      * Define this in your child class as what the command should do. Be sure to allow a mechanism
      * for the command to stop upon will.
      */
-    protected abstract void run();
+    protected abstract void start() throws InterruptedException;
 
 
     /**
-     * Executes this command
+     * Executes this command on the main thread
      */
-    public final void execute() throws InterruptedException {
-        run();
+    public final void execute() throws InterruptedException
+    {
+        start();
 
         Thread.sleep(50);
     }
 
 
     /**
-     * Runs the defined Command on the main thread.
-     *
-     * @param command Command to be run
-     */
-    protected final synchronized void addSequential(Command command)
-    {
-        command.run();
-    }
-
-
-    /**
      * Runs the defined Command on a separate thread.
      *
-     * For example, if you wish to run two Commands concurrently, add one of them to this method,
-     * and run this method FIRST. Note that there is no need to place both methods on separate
+     * For example, if you wish to start two Commands concurrently, add one of them to this method,
+     * and start this method FIRST. Note that there is no need to place both methods on separate
      * threads.
-     *
-     * @param command Command to be run
      */
-    protected final synchronized void addParallel(Command command)
+    public final void executeParallel() throws InterruptedException
     {
         if(_t == null)
         {
-            _t = new Thread(command::run);
+            _t = new Thread(() ->
+            {
+                try
+                {
+                    start();
+                }
+                catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            });
             _t.start();
         }
     }

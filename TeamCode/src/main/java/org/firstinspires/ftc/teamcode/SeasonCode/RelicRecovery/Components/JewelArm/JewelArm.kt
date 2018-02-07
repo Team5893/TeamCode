@@ -47,8 +47,6 @@ class JewelArm: RobotComponent()
 
             State.UP -> _armServo?.position = 0.8
         }
-
-        base.telMet().tagWrite("Arm Pos" , _armServo?.position)
     }
 
 

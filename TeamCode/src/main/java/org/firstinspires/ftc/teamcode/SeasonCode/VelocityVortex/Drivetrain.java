@@ -178,7 +178,7 @@ final class Drivetrain
 
 
     /**
-     * Set run mode to RUN_USING_ENCODER.
+     * Set start mode to RUN_USING_ENCODER.
      */
     void setEncoderRunUsingEncoders()
     {

@@ -3,20 +3,6 @@ package org.directcurrent.season.relicrecovery.autonomous
 
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
-import com.qualcomm.robotcore.hardware.DcMotor
-import org.directcurrent.core.AutoStopper
-import org.directcurrent.opencv.CVBridge
-import org.directcurrent.season.relicrecovery.jewelarm.JewelArm
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.AutoMenu
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Color
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Vuforia
-import org.firstinspires.ftc.robotcore.external.navigation.RelicRecoveryVuMark
-import org.firstinspires.ftc.robotcore.external.navigation.VuforiaLocalizer
-import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base
-import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.drivetrain
-import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.imu
-import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.GlyphGrabber.GlyphGrabber
 
 
 /**

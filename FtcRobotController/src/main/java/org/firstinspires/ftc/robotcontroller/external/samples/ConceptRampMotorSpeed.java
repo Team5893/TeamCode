@@ -69,7 +69,7 @@ public class ConceptRampMotorSpeed extends LinearOpMode {
         motor = hardwareMap.get(DcMotor.class, "left_drive");
 
         // Wait for the start button
-        telemetry.addData(">", "Press Start to run Motors." );
+        telemetry.addData(">", "Press Start to start Motors." );
         telemetry.update();
         waitForStart();
 

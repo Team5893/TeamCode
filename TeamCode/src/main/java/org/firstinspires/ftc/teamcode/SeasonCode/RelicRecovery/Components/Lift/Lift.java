@@ -6,9 +6,6 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotBase;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotComponent;
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Toggle;
-
-import static org.directcurrent.season.relicrecovery.ToggleTelMetKt.outputLift;
 
 
 /**
@@ -19,8 +16,6 @@ public class Lift extends RobotComponent
 {
     private DcMotor _liftMotor;
 
-    private Toggle _powered = new Toggle();
-
 
     /**
      * Position to lift to
@@ -29,9 +24,9 @@ public class Lift extends RobotComponent
     public enum Position
     {
         LOW(0) ,
-        MID_LOW(1500) ,
-        MID_HIGH(3000) ,
-        HIGH(4500);
+        MID_LOW(2_000) ,
+        MID_HIGH(4_000) ,
+        HIGH(6_000);
 
         private int _encoderPos;
 
@@ -90,12 +85,6 @@ public class Lift extends RobotComponent
     {
         _liftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         _liftMotor.setPower(POWER_VALUE);
-
-
-        if(outputLift)
-        {
-            _outputTelMet();
-        }
     }
 
 
@@ -116,20 +105,6 @@ public class Lift extends RobotComponent
     public DcMotor motor()
     {
         return _liftMotor;
-    }
-
-
-    /**
-     * Outputs telemetry to current OpMode
-     */
-    private void _outputTelMet()
-    {
-        base.telMet().write("--- Lift ---");
-        base.telMet().tagWrite("Power" , _liftMotor.getPower());
-        base.telMet().tagWrite("Position" , _liftMotor.getCurrentPosition());
-        base.telMet().tagWrite("Target" , _liftMotor.getTargetPosition());
-        base.telMet().newLine();
-        base.telMet().newLine();
     }
 
 

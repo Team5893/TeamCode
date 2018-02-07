@@ -19,7 +19,7 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Color.ColorID
 
 
 /**
- * Manages the display and interaction of an pre-run autonomous menu that appears on the driver
+ * Manages the display and interaction of an pre-start autonomous menu that appears on the driver
  * station. It can be used to set delay and team color. Note that this class does not actually
  * perform any actions such as delaying- it merely holds the values for reading by another class.
  */
@@ -125,7 +125,7 @@ public class AutoMenu
      */
     protected void displayInitMenu()
     {
-        auto.telemetry.addLine("Pre-run Initializer");
+        auto.telemetry.addLine("Pre-start Initializer");
 
         auto.telemetry.addLine();
         auto.telemetry.addLine();

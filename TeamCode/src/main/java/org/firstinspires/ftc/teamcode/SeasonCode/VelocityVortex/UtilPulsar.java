@@ -25,7 +25,7 @@ final class UtilPulsar
 
     /**
      * Pulsing function that returns true on certain intervals of time and false every other time.
-     * Function should be called in a loop, where it is run an checked every iteration.
+     * Function should be called in a loop, where it is start an checked every iteration.
      *
      *
      * @param period The length of time between each pulse in milliseconds

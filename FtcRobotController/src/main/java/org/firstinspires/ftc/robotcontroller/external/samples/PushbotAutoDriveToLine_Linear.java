@@ -87,7 +87,7 @@ public class PushbotAutoDriveToLine_Linear extends LinearOpMode {
         lightSensor.enableLed(true);
 
         // Send telemetry message to signify robot waiting;
-        telemetry.addData("Status", "Ready to run");    //
+        telemetry.addData("Status", "Ready to start");    //
         telemetry.update();
 
         // Wait for the game to start (driver presses PLAY)
@@ -104,7 +104,7 @@ public class PushbotAutoDriveToLine_Linear extends LinearOpMode {
         robot.leftDrive.setPower(APPROACH_SPEED);
         robot.rightDrive.setPower(APPROACH_SPEED);
 
-        // run until the white line is seen OR the driver presses STOP;
+        // start until the white line is seen OR the driver presses STOP;
         while (opModeIsActive() && (lightSensor.getLightDetected() < WHITE_THRESHOLD)) {
 
             // Display the light level while we are looking for the line

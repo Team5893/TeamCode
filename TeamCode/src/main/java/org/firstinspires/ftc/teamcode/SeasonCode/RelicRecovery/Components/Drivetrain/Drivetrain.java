@@ -9,8 +9,6 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.RobotComponent;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Util;
 
-import org.directcurrent.season.relicrecovery.ToggleTelMetKt;
-
 
 /**
  * Drivetrain for the Relic Recovery Robot
@@ -231,12 +229,6 @@ public class Drivetrain extends RobotComponent
 
         _leftMotor.setPower(drivePower - rotatePower);
         _rightMotor.setPower(drivePower + rotatePower);
-
-
-        if(ToggleTelMetKt.outputDrivetrain)
-        {
-            _outputTelMet();
-        }
     }
 
 
@@ -358,26 +350,6 @@ public class Drivetrain extends RobotComponent
     {
         _leftMotor.setZeroPowerBehavior(mode);
         _rightMotor.setZeroPowerBehavior(mode);
-    }
-
-
-    /**
-     * Outputs telemetry to current OpMode
-     */
-    private void _outputTelMet()
-    {
-        base.telMet().write("--- Drivetrain ---");
-        base.telMet().tagWrite("Left Power: " , _leftMotor.getPower());
-        base.telMet().tagWrite("Right Power: " , _rightMotor.getPower());
-        base.telMet().newLine();
-        base.telMet().tagWrite("Left Encoder: " , _leftMotor.getCurrentPosition());
-        base.telMet().tagWrite("Right Encoder: " , _rightMotor.getCurrentPosition());
-        base.telMet().newLine();
-        base.telMet().tagWrite("Left Target: " , _leftMotor.getTargetPosition());
-        base.telMet().tagWrite("Right Target: " , _rightMotor.getTargetPosition());
-        base.telMet().write("------------------");
-        base.telMet().newLine();
-        base.telMet().newLine();
     }
 
 

@@ -7,6 +7,7 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.Command;
 import static org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.drivetrain;
 
 
+@SuppressWarnings("unused")
 public class TimeDrive extends Command
 {
     private long _driveTime;
@@ -21,7 +22,7 @@ public class TimeDrive extends Command
      * to drive at.
      *
      * @param TIME Time to drive for in milliseconds
-     * @param FORWARD_POWER Power [-1.0 , 1.0] to run the drivetrain at (both sides)
+     * @param FORWARD_POWER Power [-1.0 , 1.0] to start the drivetrain at (both sides)
      */
     public TimeDrive(final long TIME , final double FORWARD_POWER)
     {
@@ -48,7 +49,7 @@ public class TimeDrive extends Command
 
 
     @Override
-    protected void run()
+    protected void start()
     {
         if(drivetrain.encoderMode() != DcMotor.RunMode.RUN_USING_ENCODER)
         {
@@ -60,6 +61,7 @@ public class TimeDrive extends Command
         drivetrain.leftMotor().setPower(_leftPower);
         drivetrain.rightMotor().setPower(_rightPower);
 
+        //noinspection StatementWithEmptyBody
         while(System.currentTimeMillis() - startTime < _driveTime &&
                 drivetrain.base().opMode().opModeIsActive() && !_stop)
         {

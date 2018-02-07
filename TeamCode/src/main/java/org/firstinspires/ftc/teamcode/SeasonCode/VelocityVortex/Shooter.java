@@ -41,7 +41,7 @@ final class Shooter
     private long startEncoder = 0;                              // Starting encoder count
 
     private double motorPower = .75;                    // Holds the power to be set to the motor
-    private double targetSpeed;                         // Target speed to run the flywheel at
+    private double targetSpeed;                         // Target speed to start the flywheel at
     private final double CLOSE_ENOUGH_SPEED = 5;        // A "close enough" buffer for the targets
 
     private UtilPulsar adjustPulsar = new UtilPulsar();     // Used to adjust the frequency at which
@@ -134,8 +134,8 @@ final class Shooter
     /**
      * Powers the shooter based on power mode and direction passed in
      *
-     * @param POWER Determines at which power to run the shooter
-     * @param DIRECTION Determines at which direction to run the shooter
+     * @param POWER Determines at which power to start the shooter
+     * @param DIRECTION Determines at which direction to start the shooter
      *
      * @return True if the attempt to power the shooter is successful, false otherwise
      */
@@ -165,7 +165,7 @@ final class Shooter
         }
         catch(Exception e)
         {
-            Log.e("Error" , "Cannot run shooter, check your mapping");
+            Log.e("Error" , "Cannot start shooter, check your mapping");
             success = false;
         }
 
@@ -232,7 +232,7 @@ final class Shooter
     /**
      * Adjusts the shooter's power to match the motor speed with a specified target speed.
      *
-     * @param TARGET The target speed at which to run the motor at
+     * @param TARGET The target speed at which to start the motor at
      */
     private void adjustPower(final double TARGET)
     {

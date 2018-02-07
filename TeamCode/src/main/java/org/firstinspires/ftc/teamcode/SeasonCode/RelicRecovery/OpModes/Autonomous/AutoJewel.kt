@@ -3,13 +3,6 @@ package org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.OpModes.Autonomo
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous
 import com.qualcomm.robotcore.eventloop.opmode.Disabled
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode
-import org.directcurrent.core.AutoStopper
-import org.directcurrent.opencv.CVBridge
-import org.directcurrent.season.relicrecovery.jewelarm.JewelArm
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.AutoMenu
-import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Color
-import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base
 
 
 @Autonomous(name = "Jewel")

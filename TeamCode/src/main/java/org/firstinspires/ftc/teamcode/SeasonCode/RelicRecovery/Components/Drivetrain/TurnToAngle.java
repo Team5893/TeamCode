@@ -35,7 +35,7 @@ public class TurnToAngle extends Command
 
 
     @Override
-    protected void run()
+    protected void start()
     {
         if(drivetrain.encoderMode() != DcMotor.RunMode.RUN_USING_ENCODER)
         {

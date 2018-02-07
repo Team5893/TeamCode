@@ -87,7 +87,7 @@ abstract class UtilAuto extends LinearOpMode
      */
     private void displayInitMenu()
     {
-        telemetry.addData("Pre-run Initializer" , "");
+        telemetry.addData("Pre-start Initializer" , "");
 
         telemetry.addData("\n\nControls" , "\n");
         telemetry.addData("y" , "\tSwitch Alliance Color");

@@ -51,7 +51,7 @@ public class GlyphGrabber extends RobotComponent
 
 
     /**
-     * Sets the run speed of both the conveyor belt and the intake wheels when the grabber is active
+     * Sets the start speed of both the conveyor belt and the intake wheels when the grabber is active
      *
      * @param SPEED Speed to set to the conveyor and the intake wheels
      */
