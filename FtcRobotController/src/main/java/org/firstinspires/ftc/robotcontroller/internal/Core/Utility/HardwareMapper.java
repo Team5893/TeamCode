@@ -219,7 +219,7 @@ public final class HardwareMapper
      */
     public ModernRoboticsI2cColorSensor mapMRColor(final String NAME)
     {
-        return mapMRColor(NAME , ModernRoboticsI2cColorSensor.ADDRESS_I2C_DEFAULT.get8Bit());
+        return (ModernRoboticsI2cColorSensor)_robot.hardware.colorSensor.get(NAME);
     }
 
 

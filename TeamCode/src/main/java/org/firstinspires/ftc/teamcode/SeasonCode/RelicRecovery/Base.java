@@ -2,12 +2,16 @@ package org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery;
 
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cColorSensor;
+import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cGyro;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.directcurrent.season.relicrecovery.jewelarm.JewelArm;
 import org.firstinspires.ftc.robotcontroller.internal.Core.RobotBase;
+import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.MRColor;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Drivetrain.Drivetrain;
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.RelicGrabber.RelicGrabber;
@@ -45,6 +49,8 @@ public class Base extends RobotBase
     /** Built in IMU in the Rev module */
     public static final REVIMU imu = new REVIMU();
 
+    public static ModernRoboticsI2cGyro indicator;
+
 
     /**
      * Initializes Relic Recovery Robot- be sure to place this somewhere in the OpMode before
@@ -77,6 +83,7 @@ public class Base extends RobotBase
         relicGrabber.init(this);
         jewelArm.init(this);
         imu.init(this , "imu" , params);
+        indicator = hardware.get(ModernRoboticsI2cGyro.class , "indicator");
 
 
         // Flipping IMU axis

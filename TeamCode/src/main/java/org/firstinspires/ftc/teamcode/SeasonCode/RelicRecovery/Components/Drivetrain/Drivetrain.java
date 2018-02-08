@@ -9,6 +9,8 @@ import org.firstinspires.ftc.robotcontroller.internal.Core.RobotComponent;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Sensors.REVIMU;
 import org.firstinspires.ftc.robotcontroller.internal.Core.Utility.Util;
 
+import static org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.indicator;
+
 
 /**
  * Drivetrain for the Relic Recovery Robot
@@ -224,6 +226,15 @@ public class Drivetrain extends RobotComponent
         if(_state == State.REVERSE_FAST || _state == State.REVERSE_SLOW)
         {
             rotatePower *= -1;
+        }
+
+
+        if(_state == State.FORWARD_SLOW || _state == State.REVERSE_SLOW)
+        {
+            if(!indicator.isCalibrating())
+            {
+                indicator.calibrate();
+            }
         }
 
 

@@ -36,7 +36,7 @@ public final class MRColor
      *
      * @param myRobot The robot we're working with
      */
-    MRColor(RobotBase myRobot)
+    public MRColor(RobotBase myRobot)
     {
         _robot = myRobot;
     }
@@ -47,7 +47,7 @@ public final class MRColor
      *
      * @param NAME Name of the sensor as appears in the configuration file
      */
-    void mapColor(final String NAME , final int ADDRESS)
+    public void mapColor(final String NAME , final int ADDRESS)
     {
         HardwareMapper mapHelper = new HardwareMapper(_robot);
 
@@ -55,7 +55,15 @@ public final class MRColor
     }
 
 
-    int alpha()
+    public void mapColor(final String NAME)
+    {
+        HardwareMapper mapHelper = new HardwareMapper(_robot);
+
+        _color = mapHelper.mapMRColor(NAME);
+    }
+
+
+    public int alpha()
     {
         return _color.alpha();
     }
@@ -66,7 +74,7 @@ public final class MRColor
      *
      * @return The color detected by the sensor
      */
-    ColorID getColor()
+    public ColorID getColor()
     {
         final int BUFFER = 2;       // Minimum difference between RBG values before it matters
 
@@ -89,7 +97,7 @@ public final class MRColor
      *
      * @param LED_ON True if the LED is to be turned on, false if the LED is to be turned off
      */
-    void toggleLED(final boolean LED_ON)
+    public void toggleLED(final boolean LED_ON)
     {
         _color.enableLed(LED_ON);
     }

@@ -12,6 +12,8 @@ import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.GlyphG
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.Lift.Lift;
 import org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Components.RelicGrabber.RelicGrabber;
 
+import static org.firstinspires.ftc.teamcode.SeasonCode.RelicRecovery.Base.indicator;
+
 
 /**
  * Main TeleOp for Relic Recovery Robot
